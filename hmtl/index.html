@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Especificação Técnica - Kure Fleximedical</title>
+  <link rel="stylesheet" href="style.css"> <!-- CSS externo -->
+</head>
+<body>
+  <!-- Banner -->
+  <div class="header">
+    <div class="banner">
+      <img src="./img/banner.jpg" alt="Kure Fleximedical">
+    </div>
+  </div>
+
+  <!-- Formulário -->
+  <div class="container">
+    <h1>Especificação de Materiais, Serviços e Equipamentos- Kure Fleximedical</h1>
+
+    <form id="pedidoForm">
+      <div>
+        <label>Nome do Solicitante *</label>
+        <input type="text" name="requisitante" required placeholder="Nome do requisitante">
+      </div>
+
+      <div>
+        <label>Centro de Custo *</label>
+        <input type="text" name="projeto" required placeholder="Título do projeto">
+      </div>
+
+      <div>
+        <label>Lista de Itens (descrição detalhada): Modelo, Cor, Medidas, Marca... *</label>
+        <textarea name="itens" required placeholder="Descreva os itens..."></textarea>
+      </div>
+
+      <div>
+        <label>Quantidade *</label>
+        <input type="text" name="quantidade" required placeholder="Quantidade">
+      </div>
+
+      <div>
+        <label>Observações</label>
+        <textarea name="observacoes" placeholder="Alguma observação?"></textarea>
+      </div>
+
+      <div>
+        <label>Data Prevista para recebimento *</label>
+        <input type="date" name="dataPrevista" required>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="btnAnalisar">Analisar AI</button>
+        <button type="submit" id="btnEnviar">Enviar Pedido</button>
+      </div>
+    </form>
+
+    <div id="mensagem"></div>
+    <div id="aiBalloon" class="ai-balloon" style="display: none;">
+      <button class="close-btn" onclick="closeAIBalloon()">&times;</button>
+      <div id="chatMessages" class="chat-messages"></div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem para a IA...">
+        <button id="sendBtn">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="footer-texto">
+        <h2>FLEXIMEDICAL: NOSSAS PREMIAÇÕES</h2>
+        <p>
+          Conheça mais sobre nossa trajetória e os projetos que nos destacam no mercado.
+          <a href="https://fleximedical.com.br/" target="_blank" rel="noopener">Acesse nosso site</a> e saiba mais.
+        </p>
+      </div>
+
+      <div class="footer-premios">
+        <img src="./img/premio1.png" alt="Premiação 1">
+        <img src="./img/premio2.png" alt="Premiação 2">
+        <img src="./img/premio3.png" alt="Premiação 3">
+        <img src="./img/premio4.png" alt="Premiação 4">
+        <img src="./img/premio5.png" alt="Premiação 5">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('pedidoForm');
+    const mensagem = document.getElementById('mensagem');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbzTlQpsLZxemQN0WwNJOHiLaTPsWouD8YkFK9NN17oXTHGTrQzyndlML_CPP8rl7W34zA/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        mensagem.textContent = '✅ Pedido enviado com sucesso!';
+        mensagem.style.color = '#2a7a4a';
+        form.reset();
+      } catch (error) {
+        mensagem.textContent = '❌ Erro ao enviar pedido: ' + (error.message || 'Erro de conexão');
+        mensagem.style.color = '#a33232';
+        console.error(error);
+      }
+    });
+
+    const btnAnalisar = document.getElementById('btnAnalisar');
+    const aiBalloon = document.getElementById('aiBalloon');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function closeAIBalloon() {
+      aiBalloon.style.display = 'none';
+      aiBalloon.classList.remove('show');
+      chatMessages.innerHTML = '';
+    }
+
+    function addMessage(text, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = isUser ? 'user-message' : 'ai-message';
+      messageDiv.innerHTML = text;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    btnAnalisar.addEventListener('click', async () => {
+      const itens = form.itens.value.trim();
+      if (!itens) {
+        closeAIBalloon();
+        addMessage('Por favor, descreva os itens primeiro.');
+        aiBalloon.style.display = 'block';
+        aiBalloon.classList.add('show');
+        setTimeout(closeAIBalloon, 10000);
+        return;
+      }
+
+      try {
+        closeAIBalloon();
+        addMessage('Analisando...');
+        aiBalloon.style.display = 'block';
+        aiBalloon.classList.add('show');
+
+        const response = await fetch('http://localhost:5000/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: itens })
+        });
+
+        const data = await response.json();
+        if (data.suggestions) {
+          const suggestionsText = '<strong>Sugestões da IA:</strong><br>' + data.suggestions.map(s => '• ' + s).join('<br>');
+          addMessage(suggestionsText);
+        } else {
+          addMessage('Erro: ' + (data.error || 'Resposta inválida'));
+        }
+      } catch (error) {
+        closeAIBalloon();
+        addMessage('Erro ao conectar com a IA: ' + error.message);
+        aiBalloon.style.display = 'block';
+        aiBalloon.classList.add('show');
+        setTimeout(closeAIBalloon, 10000);
+      }
+    });
+
+    sendBtn.addEventListener('click', async () => {
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      addMessage(message, true);
+      chatInput.value = '';
+
+      try {
+        const response = await fetch('http://localhost:5000/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: message })
+        });
+
+        const data = await response.json();
+        if (data.suggestions) {
+          const suggestionsText = '<strong>Sugestões da IA:</strong><br>' + data.suggestions.map(s => '• ' + s).join('<br>');
+          addMessage(suggestionsText);
+        } else {
+          addMessage('Erro: ' + (data.error || 'Resposta inválida'));
+        }
+      } catch (error) {
+        addMessage('Erro ao conectar com a IA: ' + error.message);
+      }
+    });
+
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

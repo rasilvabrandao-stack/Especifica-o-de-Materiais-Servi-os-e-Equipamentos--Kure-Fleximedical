@@ -1,0 +1,355 @@
+{
+  "categories": [
+    {
+      "id": "piso",
+      "label": "Piso",
+      "keywords": ["piso", "pisos", "porcelanato", "vinílico", "cerâmica"],
+      "examples": ["piso para recepção", "revestimento antiderrapante", "piso cerâmico branco", "vinílico antiderrapante"],
+      "followups": [
+        "Qual o material desejado? (porcelanato, vinílico, cerâmica, epóxi...)",
+        "Qual a cor ou tonalidade? (ex: bege, cinza, branco...)",
+        "Qual a metragem aproximada em m²?",
+        "Precisa de acabamento antiderrapante?",
+        "Há resistência química necessária?"
+      ]
+    },
+    {
+      "id": "sofa",
+      "label": "Sofá",
+      "keywords": ["sofá", "sofa", "poltrona", "cadeira"],
+      "examples": ["sofá para sala de espera", "poltrona reclinável", "cadeira ergonômica"],
+      "followups": [
+        "Quantos lugares deve ter o sofá?",
+        "Qual o tipo de revestimento? (tecido, couro sintético, vinil médico)",
+        "Qual a cor preferida?",
+        "Quais as dimensões aproximadas?",
+        "Precisa de fácil higienização?"
+      ]
+    },
+    {
+      "id": "mesa",
+      "label": "Mesa",
+      "keywords": ["mesa", "bancada", "apoio"],
+      "examples": ["mesa de apoio para cozinha", "bancada inox", "mesa de reunião"],
+      "followups": [
+        "Qual o material desejado? (inox, madeira, vidro, etc.)",
+        "Qual o tamanho necessário (largura x comprimento)?",
+        "Qual será a finalidade da mesa?",
+        "Precisa de gavetas ou rodas?",
+        "Quantas unidades deseja?"
+      ]
+    },
+    {
+      "id": "iluminacao",
+      "label": "Iluminação",
+      "keywords": ["luminária", "lampada", "iluminação", "led"],
+      "examples": ["luminária para corredor", "lâmpada LED branca", "iluminação de emergência"],
+      "followups": [
+        "Será iluminação geral ou pontual?",
+        "Qual a temperatura de cor? (branco frio, quente, neutro)",
+        "Prefere LED ou outro tipo de lâmpada?",
+        "Há restrição de consumo ou eficiência energética?",
+        "Precisa ser dimerizável (ajuste de intensidade)?"
+      ]
+    },
+    {
+      "id": "computador",
+      "label": "Computador",
+      "keywords": ["computador", "pc", "desktop", "notebook", "laptop", "all-in-one"],
+      "examples": ["notebook i5 8GB", "desktop gamer", "all-in-one touchscreen"],
+      "followups": [
+        "Qual o modelo desejado?",
+        "Qual o processador (ex: Intel i5, AMD Ryzen)?",
+        "Quantidade de memória RAM?",
+        "Armazenamento (SSD/HDD e capacidade)?",
+        "Placa de vídeo necessária?",
+        "Sistema operacional?",
+        "Cor preferida?",
+        "Tamanho da tela (para notebooks)?",
+        "Marca preferida?",
+        "Necessita de garantia estendida?",
+        "Acessórios incluídos?"
+      ]
+    },
+    {
+      "id": "celular",
+      "label": "Celular",
+      "keywords": ["celular", "smartphone", "telefone", "mobile", "tablet"],
+      "examples": ["iPhone 12", "Samsung Galaxy", "tablet Android"],
+      "followups": [
+        "Qual o modelo?",
+        "Marca?",
+        "Capacidade de armazenamento?",
+        "Cor?",
+        "Sistema operacional (Android/iOS)?",
+        "Tamanho da tela?",
+        "Câmera necessária?",
+        "Bateria de longa duração?",
+        "Resistência à água?",
+        "Versão desbloqueada?"
+      ]
+    },
+    {
+      "id": "roupa",
+      "label": "Roupa",
+      "keywords": ["roupa", "camisa", "calça", "jaleco", "uniforme", "blusa", "saia"],
+      "examples": ["jaleco médico branco", "uniforme de enfermagem", "camisa social"],
+      "followups": [
+        "Tamanho?",
+        "Cor?",
+        "Material?",
+        "Marca?",
+        "Modelo específico?",
+        "Gênero (masculino/feminino)?",
+        "Quantidade por tamanho?",
+        "Lavagem especial necessária?",
+        "Estampa ou lisa?"
+      ]
+    },
+    {
+      "id": "móvel",
+      "label": "Móvel",
+      "keywords": ["móvel", "armário", "estante", "cama", "mesa", "cadeira", "sofá"],
+      "examples": ["armário de aço", "estante metálica", "cama hospitalar"],
+      "followups": [
+        "Tipo de móvel?",
+        "Material?",
+        "Dimensões?",
+        "Cor?",
+        "Marca?",
+        "Finalidade?",
+        "Montagem necessária?",
+        "Peso suportado?"
+      ]
+    },
+    {
+      "id": "livro",
+      "label": "Livro",
+      "keywords": ["livro", "revista", "manual", "ebook", "apostila"],
+      "examples": ["manual de procedimentos", "livro de anatomia", "revista médica"],
+      "followups": [
+        "Título?",
+        "Autor?",
+        "Editora?",
+        "Ano de publicação?",
+        "Gênero?",
+        "Idioma?",
+        "Formato (físico/digital)?",
+        "ISBN?"
+      ]
+    },
+    {
+      "id": "comida",
+      "label": "Comida",
+      "keywords": ["comida", "bebida", "alimento", "lanche", "suco", "café"],
+      "examples": ["café da manhã", "suco natural", "lanche saudável"],
+      "followups": [
+        "Tipo de comida?",
+        "Quantidade?",
+        "Ingredientes específicos?",
+        "Marca?",
+        "Data de validade?",
+        "Restrições (ex: sem glúten)?",
+        "Orgânico?",
+        "Embalagem?"
+      ]
+    },
+    {
+      "id": "veículo",
+      "label": "Veículo",
+      "keywords": ["carro", "veículo", "moto", "bicicleta", "caminhão"],
+      "examples": ["ambulância", "carro utilitário", "bicicleta elétrica"],
+      "followups": [
+        "Modelo?",
+        "Ano?",
+        "Cor?",
+        "Marca?",
+        "Tipo de combustível?",
+        "Finalidade?",
+        "Quilometragem?",
+        "Acessórios?"
+      ]
+    },
+    {
+      "id": "eletrônico",
+      "label": "Eletrônico",
+      "keywords": ["tv", "monitor", "impressora", "projetor", "caixa de som", "fone de ouvido"],
+      "examples": ["monitor 4K", "impressora laser", "fone sem fio"],
+      "followups": [
+        "Modelo?",
+        "Marca?",
+        "Tamanho da tela?",
+        "Resolução?",
+        "Conectividade?",
+        "Uso específico?",
+        "Potência?",
+        "Bateria incluída?"
+      ]
+    },
+    {
+      "id": "escritório",
+      "label": "Escritório",
+      "keywords": ["caneta", "papel", "caderno", "clips", "grampeador", "tesoura"],
+      "examples": ["caneta esferográfica", "papel A4", "grampeador elétrico"],
+      "followups": [
+        "Tipo?",
+        "Quantidade?",
+        "Cor?",
+        "Marca?",
+        "Qualidade?",
+        "Tamanho?",
+        "Material?"
+      ]
+    },
+    {
+      "id": "limpeza",
+      "label": "Limpeza",
+      "keywords": ["detergente", "desinfetante", "papel toalha", "sabonete", "shampoo"],
+      "examples": ["desinfetante hospitalar", "papel toalha reciclado", "sabonete líquido"],
+      "followups": [
+        "Tipo de produto?",
+        "Quantidade?",
+        "Marca?",
+        "Composição?",
+        "Uso específico?",
+        "Fragrância?",
+        "Volume?"
+      ]
+    },
+    {
+      "id": "ferramenta",
+      "label": "Ferramenta",
+      "keywords": ["martelo", "chave", "furadeira", "serra", "alicate"],
+      "examples": ["furadeira elétrica", "chave de fenda", "serra circular"],
+      "followups": [
+        "Tipo de ferramenta?",
+        "Marca?",
+        "Tamanho?",
+        "Material?",
+        "Uso específico?",
+        "Potência (para elétricas)?"
+      ]
+    },
+    {
+      "id": "esporte",
+      "label": "Esporte",
+      "keywords": ["bola", "raquete", "bicicleta", "tênis", "bola de basquete"],
+      "examples": ["bola de futebol", "raquete de tênis", "tênis de corrida"],
+      "followups": [
+        "Tipo de equipamento?",
+        "Marca?",
+        "Tamanho?",
+        "Cor?",
+        "Material?",
+        "Idade recomendada?"
+      ]
+    },
+    {
+      "id": "beleza",
+      "label": "Beleza",
+      "keywords": ["creme", "perfume", "maquiagem", "shampoo", "condicionador"],
+      "examples": ["shampoo anticaspa", "creme hidratante", "perfume floral"],
+      "followups": [
+        "Tipo de produto?",
+        "Marca?",
+        "Tipo de pele/cabelo?",
+        "Fragrância?",
+        "Volume?",
+        "Composição?"
+      ]
+    },
+    {
+      "id": "saúde",
+      "label": "Saúde",
+      "keywords": ["remédio", "vitamina", "band-aid", "termômetro", "máscara"],
+      "examples": ["termômetro digital", "máscara N95", "vitamina C"],
+      "followups": [
+        "Tipo de produto?",
+        "Marca?",
+        "Dosagem?",
+        "Indicação?",
+        "Quantidade?",
+        "Prescrição necessária?"
+      ]
+    },
+    {
+      "id": "jardinagem",
+      "label": "Jardinagem",
+      "keywords": ["planta", "semente", "vaso", "fertilizante", "tesoura de poda"],
+      "examples": ["vaso de cerâmica", "fertilizante orgânico", "tesoura de poda"],
+      "followups": [
+        "Tipo de planta?",
+        "Tamanho do vaso?",
+        "Tipo de solo?",
+        "Clima adequado?",
+        "Quantidade?"
+      ]
+    },
+    {
+      "id": "brinquedo",
+      "label": "Brinquedo",
+      "keywords": ["boneca", "carrinho", "quebra-cabeça", "bola", "lego"],
+      "examples": ["quebra-cabeça 500 peças", "boneca Barbie", "carrinho de controle remoto"],
+      "followups": [
+        "Tipo de brinquedo?",
+        "Idade recomendada?",
+        "Marca?",
+        "Material?",
+        "Segurança certificada?"
+      ]
+    },
+    {
+      "id": "instrumento",
+      "label": "Instrumento",
+      "keywords": ["guitarra", "piano", "violino", "bateria", "flauta"],
+      "examples": ["piano digital", "violino acústico", "flauta transversal"],
+      "followups": [
+        "Tipo de instrumento?",
+        "Marca?",
+        "Nível (iniciante/avançado)?",
+        "Material?",
+        "Acessórios incluídos?"
+      ]
+    },
+    {
+      "id": "decoração",
+      "label": "Decoração",
+      "keywords": ["quadro", "tapete", "cortina", "abajur", "espelho"],
+      "examples": ["quadro abstrato", "tapete persa", "abajur LED"],
+      "followups": [
+        "Tipo de decoração?",
+        "Estilo?",
+        "Cor?",
+        "Dimensões?",
+        "Material?"
+      ]
+    },
+    {
+      "id": "eletrodoméstico",
+      "label": "Eletrodoméstico",
+      "keywords": ["geladeira", "fogão", "microondas", "lava-louça", "máquina de lavar"],
+      "examples": ["geladeira frost free", "microondas 30L", "máquina de lavar 12kg"],
+      "followups": [
+        "Tipo de aparelho?",
+        "Marca?",
+        "Capacidade?",
+        "Voltagem?",
+        "Funções especiais?",
+        "Consumo energético?"
+      ]
+    },
+    {
+      "id": "automotivo",
+      "label": "Automotivo",
+      "keywords": ["pneu", "óleo", "bateria", "vela", "freio"],
+      "examples": ["pneu 205/55R16", "óleo sintético", "bateria 60Ah"],
+      "followups": [
+        "Tipo de peça?",
+        "Modelo do veículo?",
+        "Marca?",
+        "Compatibilidade?",
+        "Quantidade?"
+      ]
+    }
+  ]
+}

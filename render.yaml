@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ai-analyzer-app
+    runtime: python3
+    buildCommand: pip install -r hmtl/requirements.txt
+    startCommand: python hmtl/ai_analyzer.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        value: 10000

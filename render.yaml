@@ -3,11 +3,11 @@ services:
     name: ai-analyzer-app
     runtime: python3
     buildCommand: |
-      pip install -r hmtl/requirements.txt &&
+      pip install -r requirements.txt &&
       python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('wordnet')" &&
       python -c "import spacy; spacy.cli.download('pt_core_news_sm')" &&
       python -c "import tensorflow as tf; print('TensorFlow version:', tf.__version__)"
-    startCommand: cd hmtl && python ai_analyzer.py
+    startCommand: python ai_analyzer.py
     envVars:
       - key: FLASK_ENV
         value: production

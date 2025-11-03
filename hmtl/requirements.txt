@@ -11,4 +11,3 @@ transformers
 torch
 spacy>=3.7.0
 textblob>=0.17.1
-nltk-data

@@ -493,9 +493,9 @@ def index():
 def style():
     return send_from_directory('.', 'style.css')
 
-@app.route('/img/<path:filename>')
+@app.route('/assets/<path:filename>')
 def serve_img(filename):
-    return send_from_directory('img', filename)
+    return send_from_directory('assets', filename)
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
